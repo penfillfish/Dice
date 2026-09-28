@@ -1,13 +1,13 @@
-int D = 10;
+int D;
 int diceSize = 10;
 int sum = 0;
 void setup()
 {
-  size(1000,1000);
+  size(3000,3000);
   noLoop();
 }
 void draw(){
-  D = 1000; 
+  D = 100; 
   for(int y=diceSize;y<height-diceSize;y+=diceSize){
     for(int x=diceSize;x<width-diceSize;x+=diceSize){
       Die cube = new Die(x,y,diceSize);
