@@ -1,5 +1,5 @@
 int D;
-int diceSize = 20;
+int diceSize = 10;
 int sum = 0;
 void setup()
 {
