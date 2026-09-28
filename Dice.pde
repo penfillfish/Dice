@@ -47,7 +47,7 @@ class Die //models one single dice cube
   }
   void show()
   {
-    int unit = (int)(mySideLength/4);
+    float unit = (float)(mySideLength/4);
     roll();
     fill(255);
     rect(myX,myY,mySideLength,mySideLength);
