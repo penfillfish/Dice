@@ -7,6 +7,7 @@ void setup()
   noLoop();
 }
 void draw(){
+  background(255)
   D = 100; 
   for(int y=diceSize;y<height-diceSize;y+=diceSize){
     for(int x=diceSize;x<width-diceSize;x+=diceSize){
@@ -23,7 +24,6 @@ void draw(){
 void mousePressed()
 {
   sum = 0;
-  background(255);
   redraw();
 }
 class Die //models one single dice cube
@@ -86,7 +86,7 @@ class Die //models one single dice cube
       dot(unit,-unit);
     }
     else{
-      String numStr = String.valueOf(number);
+      String numStr = number+"";
       float dynamicFontSize = mySideLength*0.7/(numStr.length*0.35); 
       textSize(min(dynamicFontSize, mySideLength*0.6));
       textAlign(CENTER, CENTER);
