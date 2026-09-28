@@ -1,15 +1,22 @@
-int size = 25;
+import javax.swing.JOptionPane;
+int D;
+int diceSize = 10;
 int sum = 0;
 void setup()
 {
-  size(500,500);
+  size(4000,4000);
+  fullScreen();
   noLoop();
 }
 void draw()
 {
-  for(int y=size;y<height-size;y+=size){
-    for(int x=size;x<width-size;x+=size){
-      Die cube = new Die(x,y,size);
+  String input = JOptionPane.showInputDialog("Please enter a number:");
+  if (input != null) { 
+    D = int(input); 
+  }
+  for(int y=diceSize;y<height-diceSize;y+=diceSize){
+    for(int x=diceSize;x<width-diceSize;x+=diceSize){
+      Die cube = new Die(x,y,diceSize);
       cube.show();
       sum += cube.number;
     }
@@ -17,6 +24,7 @@ void draw()
   fill(0);
   textAlign(CENTER,TOP);
   text("Sum = "+sum,width/2,5);
+  System.out.print(sum);
 }
 void mousePressed()
 {
@@ -38,13 +46,14 @@ class Die //models one single dice cube
   }
   void roll()
   {
-    number=(int)(Math.random()*6);
+    number=(int)(Math.random()*D+1);
   }
   void dot(float x, float y){
     ellipse(x+mySideLength/2+myX,y+mySideLength/2+myY,mySideLength/10,mySideLength/10);
   }
   void show()
   {
+    int unit = (int)(mySideLength/4);
     roll();
     fill(255);
     rect(myX,myY,mySideLength,mySideLength);
@@ -53,22 +62,41 @@ class Die //models one single dice cube
       dot(0,0);
     }
     else if(number==2){
-      dot(,-);
-      dot(-,+);
+      dot(-unit,unit);
+      dot(unit,-unit);
     }
     else if(number==3){
-      dot(myX,myY);
+      dot(unit,-unit);
       dot(0,0);
-      dot(myX,myY);
+      dot(-unit,unit);
     }
     else if(number==4){
-      
+      dot(unit,unit);
+      dot(-unit,-unit);
+      dot(unit,-unit);
+      dot(-unit,unit);
     }
     else if(number==5){
       dot(0,0);
+      dot(unit,unit);
+      dot(-unit,-unit);
+      dot(unit,-unit);
+      dot(-unit,unit);
     }
     else if(number==6){
-      
+      dot(-unit,unit);
+      dot(-unit,0);
+      dot(-unit,-unit);
+      dot(unit,unit);
+      dot(unit,0);
+      dot(unit,-unit);
+    }
+    else{
+      String numStr = String.valueOf(number);
+      float dynamicFontSize = mySideLength*0.7/(numStr.length()*0.35); 
+      textSize(min(dynamicFontSize, mySideLength*0.6));
+      textAlign(CENTER, CENTER);
+      text(numStr,myX+mySideLength/2,myY+mySideLength/2);
     }
     noFill();
   }
