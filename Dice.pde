@@ -1,9 +1,9 @@
 int D;
-int diceSize = 10;
+int diceSize = 20;
 int sum = 0;
 void setup()
 {
-  size(3000,3000);
+  size(4000,4000);
   noLoop();
 }
 void draw(){
