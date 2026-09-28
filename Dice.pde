@@ -1,10 +1,9 @@
-int D;
+int D = 10;
 int diceSize = 10;
 int sum = 0;
 void setup()
 {
-  size(2000,2000);
-  fullScreen();
+  size(1000,1000);
   noLoop();
 }
 void draw(){
