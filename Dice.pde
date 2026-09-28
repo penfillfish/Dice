@@ -1,19 +1,14 @@
-import javax.swing.JOptionPane;
 int D;
 int diceSize = 10;
 int sum = 0;
 void setup()
 {
-  size(4000,4000);
+  size(2000,2000);
   fullScreen();
   noLoop();
 }
-void draw()
-{
-  String input = JOptionPane.showInputDialog("Please enter a number:");
-  if (input != null) { 
-    D = int(input); 
-  }
+void draw(){
+  D = 1000; 
   for(int y=diceSize;y<height-diceSize;y+=diceSize){
     for(int x=diceSize;x<width-diceSize;x+=diceSize){
       Die cube = new Die(x,y,diceSize);
