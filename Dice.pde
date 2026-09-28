@@ -87,7 +87,7 @@ class Die //models one single dice cube
     }
     else{
       String numStr = String.valueOf(number);
-      float dynamicFontSize = mySideLength*0.7/(numStr.length()*0.35); 
+      float dynamicFontSize = mySideLength*0.7/(numStr.length*0.35); 
       textSize(min(dynamicFontSize, mySideLength*0.6));
       textAlign(CENTER, CENTER);
       text(numStr,myX+mySideLength/2,myY+mySideLength/2);
